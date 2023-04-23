@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
+import { BookCard } from "./BookCard";
+import { Col, Row } from "react-bootstrap";
 
 export const GetBooks = () => {
   const [books, setBooks] = useState([]);
@@ -17,10 +19,10 @@ export const GetBooks = () => {
   }, []);
 
   return (
-    <div>
-      <h1>MatgonwaBooksAI</h1>
-      <h3>Powered by OpenAI</h3>
-      <div>{books && books.map((book) => <p>{book.title}</p>)}</div>
-    </div>
+    <Row xs={1} md={5} className="justify-content-md-center">
+      {books.map((book, i) => (
+        <BookCard book={book} key={i} />
+      ))}
+    </Row>
   );
 };

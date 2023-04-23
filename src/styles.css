@@ -1,4 +1,65 @@
-* {
-  background-color: rgb(52, 20, 58);
+body {
+  background-color: rgb(103, 73, 113) !important;
+}
+
+.respuesta {
+  font-size: 24px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: white;
+  margin-top: 5px;
+}
+/* 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+} */
+
+.card {
+  border-radius: 10px !important;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3) !important;
+  height: 98% !important;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.875) !important;
+}
+
+/* .card-body {
+  height: min-content;
+} */
+
+/* .cardcontainer {
+  width: 200px !important;
+  height: 500px;
+  margin: 20px;
+} */
+
+/* .card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+} */
+
+/* .card-text {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.card-img {
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+} */
+
+/* .authors {
+  text-align: right;
+} */
+
+h1 {
+  text-align: center;
 }
