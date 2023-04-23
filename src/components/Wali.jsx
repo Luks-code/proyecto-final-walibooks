@@ -9,7 +9,7 @@ export const Wali = () => {
 
   const openai = new OpenAIApi(
     new Configuration({
-      apiKey: "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",
+      apiKey: "your api key",
     })
   );
 
