@@ -7,7 +7,7 @@ export const BookCard = ({ book }) => {
   };
 
   return (
-    <div>
+    <div className="divcard">
       <Card className="card mb-3 border-0">
         <img
           src={book.thumbnailUrl}
@@ -16,17 +16,11 @@ export const BookCard = ({ book }) => {
         />
         <Card.Body className="card-body">
           <Card.Title className="text-center titulo">{book.title}</Card.Title>
-          {/* <Card.Text
-            style={{ fontSize: "14px" }}
-            alt="No se ha proporcionado una descripción para este libro."
-          >
+          <Card.Text style={{ fontSize: "14px" }} alt="404 NOT FOUND">
             {book.shortDescription}
-          </Card.Text> */}
-          <Card.Text
-            style={{ fontSize: "11px" }}
-            alt="No se ha especificado la fecha de publicación."
-          >
-            Fecha de publicación: Matkovich
+          </Card.Text>
+          <Card.Text style={{ fontSize: "11px" }} alt="404 NOT FOUND">
+            Published Date: Matkovich
           </Card.Text>
           <Card.Text style={{ fontSize: "11px" }}>
             Categorias:{" "}
@@ -50,7 +44,7 @@ export const BookCard = ({ book }) => {
           name={book.title}
           onClick={handleClick}
         >
-          COMPRAR
+          BUY
         </Button>
       </Card>
     </div>

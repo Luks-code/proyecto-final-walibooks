@@ -4486,5 +4486,47 @@
       "authors": ["Emmit A. Scott", "Jr."],
       "categories": []
     }
+  ],
+  "freeBooks": [
+    {
+      "title": "Engineering of Big Data Processing",
+      "id": 1,
+      "publishedDate": "2022",
+      "authors": ["Piotr Fulmański"],
+      "thumbnailUrl": "https://freecomputerbooks.com/covers/Engineering-of-Big-Data-Processing.jpg",
+      "url": "https://fulmanski.pl/books/doc/engineering_of_big_data_processing.pdf"
+    },
+    {
+      "title": "An Introduction to Machine Learning Interpretability",
+      "id": 2,
+      "publishedDate": "December 15, 2021",
+      "authors": ["Patrick Hall", "Navdeep Gill"],
+      "thumbnailUrl": "https://learning.oreilly.com/library/cover/9781098115487/360h/",
+      "url": "https://h2o.ai/content/dam/h2o/en/marketing/documents/2019/08/An-Introduction-to-Machine-Learning-Interpretability-Second-Edition.pdf"
+    },
+    {
+      "title": "How To Code in React.js",
+      "id": 3,
+      "publishedDate": "July 30, 2021",
+      "authors": ["Joe Morgan"],
+      "thumbnailUrl": "https://freecomputerbooks.com/covers/How-to-Code-in-React.js.jpg",
+      "url": "http://assets.digitalocean.com/books/how-to-code-in-reactjs.pdf"
+    },
+    {
+      "title": "TypeScript in 50 Lessons",
+      "id": 4,
+      "publishedDate": "November 17, 2020",
+      "authors": ["Stefan Baumgartner"],
+      "thumbnailUrl": "https://freecomputerbooks.com/covers/TypeScript-in-50-Lessons.jpg",
+      "url": "https://www.smashingmagazine.com/provide/eBooks/typescript-in-50-lessons.pdf"
+    },
+    {
+      "title": "Python for Everybody: Exploring Data in Python 3",
+      "id": 5,
+      "publishedDate": "April 9, 2016",
+      "authors": ["Charles Russell Severance"],
+      "thumbnailUrl": "https://freecomputerbooks.com/covers/Python-for-Everybody-Exploring-Data%20in-Python-3.jpg",
+      "url": "http://do1.dr-chuck.com/pythonlearn/EN_us/pythonlearn.pdf"
+    }
   ]
 }

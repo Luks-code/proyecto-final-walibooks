@@ -40,14 +40,15 @@ export const Wali = () => {
 
   return (
     <div>
-      <div className="group">
+      <div className="group" onSubmit={respuesta}>
         <Form.Group className="mb-3 mt-3">
           <Form.Control
             type="text"
             name="name"
-            placeholder="Escribir pregunta"
+            placeholder="Enter your question"
             onChange={handleChange}
             required
+            className="input"
           />
         </Form.Group>
         <button onClick={respuesta} className="btn btn-success">
@@ -62,7 +63,11 @@ export const Wali = () => {
       {loading && (
         <Spinner animation="border" role="status" variant="light"></Spinner>
       )}
-      <p className="respuesta">{message}</p>
+      {message && (
+        <div className="square">
+          <p className="respuesta">{message}</p>
+        </div>
+      )}
     </div>
   );
 };

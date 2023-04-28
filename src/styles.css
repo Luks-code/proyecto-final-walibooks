@@ -9,6 +9,36 @@ body {
   margin-top: 5px;
 }
 
+.freebooks {
+  margin-top: 15px !important;
+}
+
+.nav-link {
+  font-size: 22px !important;
+}
+
+.navbar {
+  display: flex;
+  align-items: baseline !important;
+}
+
+.input {
+  width: 500px !important;
+}
+
+.brand {
+  font-size: 30px !important;
+}
+
+.square {
+  background-color: rgba(80, 58, 103, 0.665);
+  border-radius: 10px;
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
 .card {
   border-radius: 10px !important;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3) !important;

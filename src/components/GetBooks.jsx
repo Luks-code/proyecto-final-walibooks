@@ -1,17 +1,15 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import { useState } from "react";
 import { BookCard } from "./BookCard";
-import { Col, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
+import { GetBooksHelper } from "../helpers/GetBooksHelper";
 
 export const GetBooks = () => {
   const [books, setBooks] = useState([]);
 
-  const url = "http://localhost:3000/books";
-
   const getBooks = async () => {
-    const { data } = await axios.get(url);
-    setBooks(data);
+    const newBooks = await GetBooksHelper("books");
+    setBooks(newBooks);
   };
 
   useEffect(() => {
