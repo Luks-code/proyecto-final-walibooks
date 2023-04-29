@@ -16,7 +16,7 @@ export const Wali = () => {
 
   const openai = new OpenAIApi(
     new Configuration({
-      apiKey: "your api key",
+      apiKey: "yourapikey",
     })
   );
 
@@ -28,7 +28,7 @@ export const Wali = () => {
     setQuestion(e.target.value);
   };
 
-  const respuesta = async (e) => {
+  const respuesta = async () => {
     setLoading(true);
     const res = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
@@ -40,7 +40,7 @@ export const Wali = () => {
 
   return (
     <div>
-      <div className="group" onSubmit={respuesta}>
+      <div className="group groupsearch" onSubmit={respuesta}>
         <Form.Group className="mb-3 mt-3">
           <Form.Control
             type="text"

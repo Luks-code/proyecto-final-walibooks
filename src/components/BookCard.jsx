@@ -3,36 +3,62 @@ import { Button, Card } from "react-bootstrap";
 
 export const BookCard = ({ book }) => {
   const handleClick = (e) => {
-    window.location.href = `https://www.amazon.com/s?k=${e.target.name} book`;
+    window.location.href = book.volumeInfo.previewLink;
   };
 
   return (
     <div className="divcard">
       <Card className="card mb-3 border-0">
         <img
-          src={book.thumbnailUrl}
           alt="403 FORBIDDEN"
+          src={
+            book.volumeInfo.imageLinks === undefined
+              ? ""
+              : `${book.volumeInfo.imageLinks.thumbnail}`
+          }
           className="image-card"
         />
-        <Card.Body className="card-body">
-          <Card.Title className="text-center titulo">{book.title}</Card.Title>
+        <Card.Header>
+          <Card.Title className="text-center titulo">
+            {book.volumeInfo.title}
+          </Card.Title>
+        </Card.Header>
+        <Card.Body className="card-body overflow-scroll">
           <Card.Text style={{ fontSize: "14px" }} alt="404 NOT FOUND">
-            {book.shortDescription}
-          </Card.Text>
-          <Card.Text style={{ fontSize: "11px" }} alt="404 NOT FOUND">
-            Published Date: Matkovich
-          </Card.Text>
-          <Card.Text style={{ fontSize: "11px" }}>
-            Categorias:{" "}
-            {book.categories.map((categorie, i) => {
-              if (i === book.categories.length - 1) {
-                return `${categorie}.`;
-              } else {
-                return `${categorie}, `;
-              }
-            })}
+            {book.volumeInfo.description}
           </Card.Text>
         </Card.Body>
+        <Card.Footer>
+          <Card.Text style={{ fontSize: "14px" }} alt="404 NOT FOUND">
+            Published date: {book.volumeInfo.publishedDate}
+          </Card.Text>
+          <Card.Text style={{ fontSize: "14px" }} alt="404 NOT FOUND">
+            Authors:{" "}
+            {book.volumeInfo.authors === undefined
+              ? "Not Found"
+              : book.volumeInfo.authors.map((author, i) => {
+                  if (i === book.volumeInfo.authors.length - 1) {
+                    return `${author}.`;
+                  } else {
+                    return `${author}, `;
+                  }
+                })}
+          </Card.Text>
+          <Card.Text style={{ fontSize: "14px" }}>
+            {book.volumeInfo.categories === undefined
+              ? "Categories: Not Found"
+              : `Categories: ${book.volumeInfo.categories}`}
+          </Card.Text>
+          {book.saleInfo.saleability === "NOT_FOR_SALE" ? (
+            <Card.Text style={{ fontSize: "20px" }} className="freetext">
+              FREE
+            </Card.Text>
+          ) : (
+            <Card.Text style={{ fontSize: "20px" }} className="saletext">
+              FOR SALE
+            </Card.Text>
+          )}
+        </Card.Footer>
         <Button
           className="button-center d-flex justify-content-center button-style"
           style={{
@@ -44,7 +70,7 @@ export const BookCard = ({ book }) => {
           name={book.title}
           onClick={handleClick}
         >
-          BUY
+          PREVIEW
         </Button>
       </Card>
     </div>
