@@ -3,7 +3,7 @@ import { Button, Card } from "react-bootstrap";
 
 export const BookCard = ({ book }) => {
   const handleClick = (e) => {
-    window.location.href = book.volumeInfo.previewLink;
+    window.open(book.volumeInfo.previewLink);
   };
 
   return (
@@ -28,7 +28,7 @@ export const BookCard = ({ book }) => {
             {book.volumeInfo.description}
           </Card.Text>
         </Card.Body>
-        <Card.Footer>
+        <Card.Footer className="card-footer">
           <Card.Text style={{ fontSize: "14px" }} alt="404 NOT FOUND">
             Published date: {book.volumeInfo.publishedDate}
           </Card.Text>
@@ -58,20 +58,20 @@ export const BookCard = ({ book }) => {
               FOR SALE
             </Card.Text>
           )}
+          <Button
+            className="button-center d-flex justify-content-center button-style"
+            style={{
+              width: "8rem",
+              fontSize: "14px",
+              margin: "auto",
+              marginBottom: "12px",
+            }}
+            name={book.title}
+            onClick={handleClick}
+          >
+            PREVIEW
+          </Button>
         </Card.Footer>
-        <Button
-          className="button-center d-flex justify-content-center button-style"
-          style={{
-            width: "8rem",
-            fontSize: "14px",
-            margin: "auto",
-            marginBottom: "12px",
-          }}
-          name={book.title}
-          onClick={handleClick}
-        >
-          PREVIEW
-        </Button>
       </Card>
     </div>
   );

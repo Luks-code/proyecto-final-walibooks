@@ -14,9 +14,6 @@ export const NavBar = () => {
             <Link to="/helper" className="nav-link">
               HelperIA
             </Link>
-            <Link to="/free" className="nav-link">
-              Free Books
-            </Link>
           </Nav>
         </Container>
       </Navbar>

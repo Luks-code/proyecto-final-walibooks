@@ -37,7 +37,7 @@ export const GetBooks = () => {
         </button>
       </div>
       {search && books && (
-        <Row xs={1} md={5} className="justify-content-md-center">
+        <Row xs={1} md={4} className="justify-content-md-center">
           {books.map((book, i) => (
             <BookCard book={book} key={book.id} />
           ))}
