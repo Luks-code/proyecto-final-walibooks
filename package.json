@@ -24,7 +24,9 @@
     "react-dom": "^18.2.0",
     "react-router": "^6.10.0",
     "react-router-dom": "^6.10.0",
+    "react-speech-recognition": "^3.10.0",
     "react-spinners": "^0.13.8",
+    "regenerator-runtime": "^0.13.11",
     "sweetalert2": "^11.4.8"
   },
   "devDependencies": {

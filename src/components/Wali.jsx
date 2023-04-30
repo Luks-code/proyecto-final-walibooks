@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { OpenAIApi, Configuration } from "openai";
 import { Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faVolumeHigh } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMicrophone,
+  faMicrophoneSlash,
+  faVolumeHigh,
+} from "@fortawesome/free-solid-svg-icons";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
 import Spinner from "react-bootstrap/Spinner";
+import Swal from "sweetalert2";
 
 export const Wali = () => {
   const element = <FontAwesomeIcon icon={faVolumeHigh} />;
+  const micOn = <FontAwesomeIcon icon={faMicrophone} />;
+  const micOff = <FontAwesomeIcon icon={faMicrophoneSlash} />;
+
+  const {
+    transcript,
+    listening,
+    browserSupportsSpeechRecognition,
+    resetTranscript,
+  } = useSpeechRecognition();
 
   const [message, setMessage] = useState("");
 
@@ -16,7 +33,7 @@ export const Wali = () => {
 
   const openai = new OpenAIApi(
     new Configuration({
-      apiKey: "yourapikey",
+      apiKey: "your api key",
     })
   );
 
@@ -24,11 +41,32 @@ export const Wali = () => {
     speechSynthesis.speak(new SpeechSynthesisUtterance(message));
   };
 
+  const speechToText = async () => {
+    if (!browserSupportsSpeechRecognition) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Browser does not support speech recognition",
+      });
+    } else {
+      SpeechRecognition.startListening({ continuous: true });
+    }
+  };
+
+  useEffect(() => {
+    setQuestion(transcript);
+  }, [transcript]);
+
+  const speechStop = () => {
+    SpeechRecognition.stopListening();
+  };
+
   const handleChange = (e) => {
     setQuestion(e.target.value);
   };
 
   const respuesta = async () => {
+    SpeechRecognition.stopListening();
     setLoading(true);
     const res = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
@@ -36,6 +74,7 @@ export const Wali = () => {
     });
     setMessage(res.data.choices[0].message.content);
     setLoading(false);
+    resetTranscript();
   };
 
   return (
@@ -47,10 +86,21 @@ export const Wali = () => {
             name="name"
             placeholder="Enter your question"
             onChange={handleChange}
+            value={question}
             required
             className="input"
           />
         </Form.Group>
+        {!listening && (
+          <button onClick={speechToText} className="btn btn-success">
+            {micOn}
+          </button>
+        )}
+        {listening && (
+          <button onClick={speechStop} className="btn btn-success">
+            {micOff}
+          </button>
+        )}
         <button onClick={respuesta} className="btn btn-success">
           ENTER
         </button>
