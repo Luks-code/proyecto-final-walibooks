@@ -43,11 +43,7 @@ export const Wali = () => {
 
   const speechToText = async () => {
     if (!browserSupportsSpeechRecognition) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Browser does not support speech recognition",
-      });
+      alert("Browser does not support speech recognition");
     } else {
       SpeechRecognition.startListening({ continuous: true });
     }
