@@ -11,7 +11,6 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import Spinner from "react-bootstrap/Spinner";
-import Swal from "sweetalert2";
 
 export const Wali = () => {
   const element = <FontAwesomeIcon icon={faVolumeHigh} />;
@@ -93,7 +92,7 @@ export const Wali = () => {
           </button>
         )}
         {listening && (
-          <button onClick={speechStop} className="btn btn-success">
+          <button onClick={speechStop} className="btn btn-danger">
             {micOff}
           </button>
         )}
